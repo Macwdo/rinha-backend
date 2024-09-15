@@ -2,4 +2,4 @@ tests/
 .vscode/
 .venv/
 docker-compose.yml
-__pycache__
+**/__pycache__
