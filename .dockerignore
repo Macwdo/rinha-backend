@@ -1,0 +1,5 @@
+tests/
+.vscode/
+.venv/
+docker-compose.yml
+__pycache__
