@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:16.4
+    restart: always
+    environment:
+      - POSTGRES_USER=appuser
+      - POSTGRES_PASSWORD=appuserpassword
+      - POSTGRES_DB=appdb
+
+    ports:
+      - 5432:5432
+
+    volumes:
+      - ./.data:/var/lib/postgresql/data
+
+  cache:
+    image: redis:7.4
+    ports:
+      - 6379:6379

@@ -1,0 +1,40 @@
+services:
+  api: &api-base
+    build: .
+    deploy:
+      resources:
+        limits:
+          cpus: "0.4"
+          memory: "0.5GB"
+
+    depends_on:
+      - db
+
+  api_1:
+    <<: *api-base
+    ports:
+      - 8000:80
+
+  api_2:
+    <<: *api-base
+    ports:
+      - 8001:80
+
+  db:
+    image: postgres:16.4
+    restart: always
+    environment:
+      - POSTGRES_USER=appuser
+      - POSTGRES_PASSWORD=appuserpassword
+      - POSTGRES_DB=appdb
+
+    ports:
+      - 5432:5432
+
+    volumes:
+      - ./.data:/var/lib/postgresql/data
+
+  cache:
+    image: redis:7.4
+    ports:
+      - 6379:6379

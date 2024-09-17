@@ -1,3 +1,8 @@
 **cache**
 .venv
 .vscode
+.idea
+__pycache__
+**/*.pyc
+**/__pycache__/
+.data

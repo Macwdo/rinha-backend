@@ -1,6 +1,5 @@
 import pytest
-from src.main import Person
-from fastapi.testclient import TestClient
+from src.app import Person
 
 
 @pytest.mark.parametrize(
